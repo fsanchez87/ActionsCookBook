@@ -1,0 +1,21 @@
+# A first workflow to play arount with the editor
+name: My First Workflow
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch: 
+jobs:
+  first_jobs:
+    name: My first job
+    runs-on: ubuntu-latest
+    steps:
+      - run: | 
+          echo "Hello world from ${{github.actor}}."
+          echo "Current branch is '${{github.ref}}'.
+
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - run: tree
+      
